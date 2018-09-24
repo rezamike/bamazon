@@ -13,4 +13,5 @@ CREATE TABLE products (
     stock_quantity INT NOT NULL
 );
 
-SELECT * FROM products
+SELECT * FROM products;
+
