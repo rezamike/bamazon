@@ -14,3 +14,5 @@ CREATE TABLE products (
 );
 
 SELECT * FROM products;
+
+

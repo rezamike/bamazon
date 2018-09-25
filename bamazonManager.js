@@ -84,7 +84,7 @@ function addInv() {
                         })
 
                         console.log(chalk.cyan.bold("-------------------------------------------------------------\n"));
-                        console.log("Your update went through!\n");
+                        console.log(chalk.green.bold.italic("\nYour update went through!\n"));
                         console.log(chalk.cyan.bold("\n-------------------------------------------------------------\n"));
                     });
             });
@@ -112,41 +112,42 @@ function newProduct() {
             {
                 name: "main4",
                 type: "input",
-                message: chalk.cyan.bold("\nProduct price?")
+                message: chalk.cyan.bold("\nProduct price?"),
+                validate: function (value) {
+                    if (isNaN(value) === false) {
+                        return true;
+                    }
+                    return false;
+                }
             },
             {
                 name: "main5",
                 type: "input",
-                message: chalk.cyan.bold("\nProduct quantity?")
+                message: chalk.cyan.bold("\nProduct quantity?"),
+                validate: function (value) {
+                    if (isNaN(value) === false) {
+                        return true;
+                    }
+                    return false;
+                }
             }
         ])
         .then(function (answer) {
-            connection.query("INSERT INTO products (product_name, description, department_name, price, stock_quantity) VALUES (?, ?, ?, ?, ?)", [
+            connection.query("INSERT INTO products SET ?", [
                 {
-                    product_name: answer.main1
-                },
-                {
-                    description: answer.main2
-                },
-                {
-                    department_name: answer.main3
-                },
-                {
-                    price: answer.main4
-                },
-                {
+                    product_name: answer.main1,
+                    description: answer.main2,
+                    department_name: answer.main3,
+                    price: answer.main4,
                     stock_quantity: answer.main5
                 }
             ], function (err, res) {
                 if (err) throw err;
 
                 console.log(chalk.cyan.bold("-------------------------------------------------------------\n"));
-                for (let i = 0; i < res.length; i++) {
-                    console.log(chalk.red("Your new product has been added!"));
-                };
+                console.log(chalk.green.bold.italic("\nYour new product has been added!\n"));
                 console.log(chalk.cyan.bold("\n-------------------------------------------------------------\n"));
-
-                var z = setTimeout(function () { mainGame() }, 2000);
+                
             });
         });
 };
@@ -181,6 +182,7 @@ connection.connect(function mainGame(err) {
                 case "Add New Product":
                     newProduct();
 
+                    var z = setTimeout(function () { mainGame() }, 20000);
                     break;
                 case "Quit":
                     connection.end();
