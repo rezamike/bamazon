@@ -15,7 +15,7 @@ The __*manager*__ is able to:
 
 All of these are meant to run through a node localhost server. 
 
-These popular movie props are good for decoration, or as a gift to your pop-geek friends.
+### These popular movie props are good for decoration, or as a gift to your pop-geek friends.
 
 Please install npm:
 ```javascript
@@ -26,6 +26,6 @@ Please install npm:
 "require": "^2.4.20"
 ```
 
-##### Thank you, and enjoy!
+#### Thank you, and enjoy!
 
 Video run-through: 

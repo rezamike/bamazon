@@ -148,6 +148,7 @@ function newProduct() {
                 console.log(chalk.green.bold.italic("\nYour new product has been added!\n"));
                 console.log(chalk.cyan.bold("\n-------------------------------------------------------------\n"));
                 
+                connection.end();
             });
         });
 };
@@ -182,7 +183,6 @@ connection.connect(function mainGame(err) {
                 case "Add New Product":
                     newProduct();
 
-                    var z = setTimeout(function () { mainGame() }, 20000);
                     break;
                 case "Quit":
                     connection.end();
