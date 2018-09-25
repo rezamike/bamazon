@@ -28,4 +28,4 @@ Please install npm:
 
 #### Thank you, and enjoy!
 
-Video run-through: 
+Video run-through: https://drive.google.com/file/d/1cmcjLPJc3yW04S9GaSa9vcToWpag1LUP/view

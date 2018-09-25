@@ -92,7 +92,7 @@ function selectItem() {
                             })
 
                             console.log(chalk.cyan.bold("-------------------------------------------------------------\n"));
-                            console.log("Your order went through! Congratulations!\n" + "\nYou spent " + chalk.red("  $") + chalk.red(res[index].price));
+                            console.log("Your order went through! Congratulations!\n" + "\nYou spent " + chalk.red("  $") + chalk.red(res[index].price * other.notMain));
                             console.log(chalk.cyan.bold("\n-------------------------------------------------------------\n"));
 
                             var y = setTimeout(function () { connection.end() }, 3000);
